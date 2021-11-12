@@ -11,6 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: './TestingGitActions' # set this to the path to your web app project, defaults to the repository root
+
     steps:
     - uses: actions/checkout@v2
     
@@ -18,8 +21,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.x
-    
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: './TestingGitActions' # set this to the path to your web app project, defaults to the repository root
 
     - name: 'Resolve Project Dependencies Using Dotnet'
       shell: bash
