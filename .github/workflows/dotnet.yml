@@ -19,8 +19,18 @@ jobs:
       with:
         dotnet-version: 3.1.x
     
-    - name: Restore dependencies
-      run: dotnet restore TestingGitActions
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: './TestingGitActions' # set this to the path to your web app project, defaults to the repository root
+
+    - name: 'Resolve Project Dependencies Using Dotnet'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
+
+
+    # - name: Restore dependencies
+    #   run: dotnet restore TestingGitActions
     
-    - name: Build
-      run: dotnet build TestingGitActions --no-restore
+    # - name: Build
+    #   run: dotnet build TestingGitActions --no-restore
