@@ -11,7 +11,7 @@ env:
   AZURE_FUNCTIONAPP_NAME: whateverbsp  # set this to your application's name
   DOTNET_VERSION: '3.1.x'              # set this to the dotnet version to use
 
-https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions?tabs=dotnet#deploy-the-function-app
+#https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions?tabs=dotnet#deploy-the-function-app
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
